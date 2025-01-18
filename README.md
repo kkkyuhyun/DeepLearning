@@ -35,20 +35,7 @@ review1, review2, review3를 review_text로 전처리 후 감정 분석 수행<b
 리뷰 길이 제한: 텍스트 길이 chunk로 나누어 최대 텍스트 길이 200자로 한정(제한된 길이로 설정해야 딥러닝 작동..?)<br>
 감정분석 실행: 감정 분석 모델 텍스트를 긍정적인지 부정적인지 판단하는 작업 수행 후 긍정 부정적인 감정이 나타난 비율을 계산하여 최종 감정 점수를 산출
 
-4. 설치 패키지 
-- Python 3 
-```
-pip install pykospacing
-pip install kss
-pip install konlpy
-pip install soynlp
-git clone https://github.com/kakao/khaiii.git # khaii 설치 방법 참조
-pip install gensim
-pip install jamo
-pip install transformers
-pip install sentencepiece
-pip install hanspell
-```
+
 
 II. 전처리
 -----------
