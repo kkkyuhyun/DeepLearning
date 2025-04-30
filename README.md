@@ -38,7 +38,7 @@ review1, review2, review3를 review_text로 전처리 후 감정 분석 수행<b
 ✅ 긍정과 부정을 단순히 특정 단어만 보고 판단하는 것이 아님 <br>-> 리뷰 텍스트 전체를 사전 학습된 감정 분석 모델 Bert 계열에 넣고 모델이 해당 문장이 긍정일 확률이 높은지 부정적인 확률이 높은지 출력해 확률에 따라 나눔 <br>
 예1) I love how smooth and quiet the car drives <br>
 -> 모델 예측: 긍정 Positive 확률 0.92 <br>
-예2) The car lookcs good, but the engine has serious problems <br>
+예2) The car looks good, but the engine has serious problems <br>
 -> 모델 예측: 부정 Negative 확률 0.81 <br>
 * 예시와 같이 두번째 문장은 good 같은 긍정 단어가 있음에도 불구하고 Problems라는 단어와 부정적인 맥락이 포함되어 있어서 모델이 전체 문맥을 보고 부정으로 분류 <br>
 * 따라서 좋은 단어의 리스트 나쁜 단어의 리스트로 단어 자체 기준 (긍/부정) 기준으로 감정을 나누는 것이 아니라, 문장의 의미와 구조 전체를 이해하는 모델을 사용해 감정을 분류 <br>
