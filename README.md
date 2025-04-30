@@ -29,12 +29,20 @@ I. 프로젝트 개요
 ![image](https://github.com/user-attachments/assets/3b869321-1292-4bce-9f86-6afdd318c086)<br>
 ![image](https://github.com/user-attachments/assets/dd4fb044-1dc1-4a19-8993-6e8d78bae9e0)
 
-* 감정분석
+✅ 감정분석
 산출 방법: Python Transformers 자연어 처리 모델<br>
 review1, review2, review3를 review_text로 전처리 후 감정 분석 수행<br>
 리뷰 길이 제한: 텍스트 길이 chunk로 나누어 최대 텍스트 길이 200자로 한정(제한된 길이로 설정해야 딥러닝 작동..?)<br>
 감정분석 실행: 감정 분석 모델 텍스트를 긍정적인지 부정적인지 판단하는 작업 수행 후 긍정 부정적인 감정이 나타난 비율을 계산하여 최종 감정 점수를 산출
 
+✅ 긍정과 부정을 단순히 특정 단어만 보고 판단하는 것이 아님 -> 리뷰 텍스트 전체를 사전 학습된 감정 분석 모델 Bert 계열에 넣고 모델이 해당 문장이 긍정일 확률이 높은지 부정적인 확률이 높은지 출력해 확률에 따라 나눔 <br>
+예1) I love how smooth and quiet the car drives <br>
+-> 모델 예측: 긍정 Positive 확률 0.92 <br>
+예2) The car lookcs good, but the engine has serious problems <br>
+-> 모델 예측: 부정 Negative 확률 0.81 <br>
+## 예시와 같이 두번째 문장은 good 같은 긍정 단어가 있음에도 불구하고 Problems라는 단어와 부정적인 맥락이 포함되어 있어서 모델이 전체 문맥을 보고 부정으로 분류 <br>
+## 따라서 좋은 단어의 리스트 나쁜 단어의 리스트로 단어 자체 기준 (긍/부정) 기준으로 감정을 나누는 것이 아니라, 문장의 의미와 구조 전체를 이해하는 모델을 사용해 감정을 분류 <br>
+## Word Cloud(분류된 리뷰들을 시각화)에서 확인할 수 있듯이 긍정 리뷰에는 'great', 'drive', 'smooth'같은 단어가 많이 등장했고 부정 리뷰에는 'problem', 'dealer', 'issue'같은 단어가 많이 나타남. <br>
 
 
 II. 전처리
